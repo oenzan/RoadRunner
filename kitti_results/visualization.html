@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KITTI Dataset Detection Demo - RoadRunner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .description {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .image-section {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .image-section h2 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+        }
+        .image-section img {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .image-section p {
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        .legend {
+            display: inline-block;
+            margin: 10px 20px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .legend.lines { background-color: #00ff00; color: #000; }
+        .legend.signs { background-color: #ffff00; color: #000; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 RoadRunner - KITTI Dataset Detection Demo</h1>
+        
+        <div class="description">
+            <h3>Detection Methods (Classical Computer Vision - Non-ML)</h3>
+            <p><strong>Line Detection:</strong> Probabilistic Hough Transform - Shown as <span class="legend lines">Green Lines</span></p>
+            <p><strong>Car Detection:</strong> Haar Cascade Classifier - Shown with <span class="legend cars" style="background-color: #0000ff; color: #fff;">Blue Bounding Boxes</span></p>
+            <p><strong>Sign Detection:</strong> HSV Color Segmentation - Shown with <span class="legend signs">Colored Bounding Boxes</span></p>
+        </div>
+
+        <div class="image-section">
+            <h2>1. Original KITTI-like Image</h2>
+            <img src="original_kitti.png" alt="Original KITTI Image">
+            <p>Source: KITTI-like synthetic road scene (1242x375 pixels)</p>
+        </div>
+
+        <div class="image-section">
+            <h2>2. Line Detection Result</h2>
+            <img src="kitti_lines.png" alt="Line Detection">
+            <p>Lane lines detected using Hough Transform - Displayed as green lines</p>
+        </div>
+
+        <div class="image-section">
+            <h2>3. Sign Detection Result</h2>
+            <img src="kitti_signs.png" alt="Sign Detection">
+            <p>Traffic signs detected using color segmentation - Displayed with colored bounding boxes</p>
+        </div>
+
+        <div class="image-section">
+            <h2>4. Combined Detection Result</h2>
+            <img src="kitti_combined_detection.png" alt="Combined Detection">
+            <p>All detections combined: Lines (green), Cars (blue boxes), Signs (colored boxes)</p>
+        </div>
+    </div>
+</body>
+</html>
