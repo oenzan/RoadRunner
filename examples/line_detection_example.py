@@ -25,12 +25,13 @@ def main():
     save_image(image, 'results/example_line_original.png')
     
     # Initialize line detector with custom parameters
+    import numpy as np
     detector = LineDetector(
-        rho=1,              # Distance resolution
-        theta=1,            # Angle resolution (degrees, converted to radians)
-        threshold=30,       # Minimum votes
-        min_line_length=20, # Minimum line length
-        max_line_gap=15     # Maximum gap between segments
+        rho=1,                  # Distance resolution
+        theta=np.pi/180,        # Angle resolution (in radians, 1 degree)
+        threshold=30,           # Minimum votes
+        min_line_length=20,     # Minimum line length
+        max_line_gap=15         # Maximum gap between segments
     )
     
     # Detect all lines

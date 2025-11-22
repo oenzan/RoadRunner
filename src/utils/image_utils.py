@@ -152,7 +152,7 @@ def create_test_image_signs():
     cv2.circle(image, (150, 150), 50, (0, 0, 255), -1)
     
     # Draw yellow triangle (warning sign simulation)
-    pts = np.array([[400, 100], [350, 200], [450, 200]], np.int32)
+    pts = np.array([[400, 100], [350, 200], [450, 200]], dtype=np.int32)
     cv2.fillPoly(image, [pts], (0, 255, 255))
     
     # Draw blue rectangle (info sign simulation)
