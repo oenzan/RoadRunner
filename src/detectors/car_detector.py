@@ -51,12 +51,9 @@ class CarDetector:
                 print(f"Cascade downloaded to {cascade_path}")
             except Exception as e:
                 print(f"Warning: Could not download cascade file: {e}")
-                # Use backup: frontal face cascade as a placeholder for demo
-                cascade_path = cv2.data.haarcascades + 'haarcascade_car.xml'
-                if not os.path.exists(cascade_path):
-                    # Use alternative method - return a basic cascade path
-                    cascade_path = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
-                    print(f"Using fallback cascade: {cascade_path}")
+                print("Car detection may not work properly without the cascade file.")
+                # Create a placeholder path - detector will need manual cascade file
+                pass
         
         return cascade_path
     
