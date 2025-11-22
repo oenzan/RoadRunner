@@ -112,9 +112,25 @@ def download_kitti_sample():
         for idx, sample_url in enumerate(sample_urls):
             try:
                 print(f"  Trying source {idx+1}/{len(sample_urls)}...")
-                urllib.request.urlretrieve(sample_url, str(sample_path))
-                print(f"  ✓ Downloaded to {sample_path}")
-                break
+                # Set a reasonable timeout and size limit
+                req = urllib.request.Request(sample_url, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    # Check content type
+                    content_type = response.headers.get('Content-Type', '')
+                    if 'image' not in content_type.lower():
+                        print(f"  ✗ Invalid content type: {content_type}")
+                        continue
+                    
+                    # Read with size limit (10MB max)
+                    max_size = 10 * 1024 * 1024
+                    data = response.read(max_size)
+                    
+                    # Save file
+                    with open(str(sample_path), 'wb') as f:
+                        f.write(data)
+                    
+                    print(f"  ✓ Downloaded to {sample_path}")
+                    break
             except Exception as e:
                 print(f"  ✗ Failed: {e}")
                 if idx == len(sample_urls) - 1:
