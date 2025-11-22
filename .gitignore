@@ -42,6 +42,10 @@ Thumbs.db
 # Project specific
 results/*.png
 results/*.jpg
+kitti_results/*.png
+kitti_results/*.jpg
+kitti_data/*.png
+kitti_data/*.jpg
 models/*.xml
 *.log
 
@@ -49,3 +53,5 @@ models/*.xml
 !results/.gitkeep
 !sample_images/.gitkeep
 !models/.gitkeep
+!kitti_results/.gitkeep
+!kitti_data/.gitkeep

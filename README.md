@@ -73,6 +73,23 @@ Provide an image path as an argument:
 python main.py path/to/your/image.jpg
 ```
 
+### KITTI Dataset Demo
+Run detection on KITTI dataset sequences (or KITTI-like sample):
+```bash
+# Auto-generates KITTI-like sample if no dataset available
+python kitti_demo.py
+
+# Or use your own KITTI dataset image
+python kitti_demo.py path/to/kitti/image.png
+```
+
+The KITTI demo displays:
+- **Lines**: Shown as green lines (lane markings)
+- **Cars**: Shown with blue bounding boxes
+- **Signs**: Shown with colored bounding boxes (red/blue/yellow)
+
+Results are saved to `kitti_results/` directory with separate outputs for each detection type and a combined visualization.
+
 ### Using Individual Detectors
 
 #### Line Detection
@@ -142,6 +159,7 @@ cv2.imwrite('signs_detected.jpg', result)
 ```
 RoadRunner/
 ├── main.py                          # Main application script
+├── kitti_demo.py                    # KITTI dataset demo script
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # This file
 ├── src/
@@ -154,6 +172,8 @@ RoadRunner/
 │       ├── __init__.py
 │       └── image_utils.py          # Image processing utilities
 ├── results/                         # Output directory for results
+├── kitti_results/                   # KITTI demo output directory
+├── kitti_data/                      # KITTI dataset images (optional)
 ├── sample_images/                   # Sample test images (optional)
 └── models/                          # Cascade classifier models
 ```
